@@ -1,0 +1,32 @@
+
+<h3><i>Please log in to see the coupons:</i></h3>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)"  *ngIf="!authService.isLoggedIn">
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="name">
+    </label>
+    <label class="center-block">Password:
+      <input class="form-control" formControlName="password">
+    </label>
+    <label class="center-block">User Type:
+      <select class="form-control" formControlName="clientType">
+          <option *ngFor="let userType of usersType" [value]="userType">{{userType}}</option>
+      </select>
+    </label>
+
+    <!--<input type="submit" class="btn btn-degault"
+      [disabled]="loginForm.invalid" value="Login">-->
+    <button (click)="login(loginForm.value)" [disabled]="loginForm.invalid">Login</button>
+  </div>
+</form>
+
+<div *ngIf="errorStatus"> {{ errorMsg }} </div>
+
+<p>{{message}}</p>
+<p>
+   <!--<button (click)="login()"  *ngIf="!authService.isLoggedIn" [disabled]="loginForm.invalid">Login</button>-->
+   <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+</p>
+   
+<p>Form value: {{ loginForm.value | json }}</p>
+<p>Form status: {{ loginForm.status | json }}</p>

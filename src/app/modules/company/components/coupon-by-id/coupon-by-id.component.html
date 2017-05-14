@@ -1,0 +1,24 @@
+<h3><i>Coupon details:</i></h3>
+<form [formGroup]="couponIdForm" (ngSubmit)="onSubmit(couponIdForm)">
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="id">
+    </label>
+
+    <input type="submit" class="btn btn-degault"  [disabled]="couponIdForm.invalid" value="Submit">
+    <!--<button (click)="login(loginForm.value)" [disabled]="loginForm.invalid">Login</button>-->
+  </div>
+</form>
+
+<div [hidden]="!submitted">
+    <i> Title :</i> {{ this.coupon.title }} <br>
+    <i> Type :</i> {{ this.coupon.type }} <br>
+    <i> Id :</i> {{ this.coupon.id }} <br>
+    <i> Strart Date :</i> {{ this.coupon.startDate }} <br>
+    <i> End Date :</i> {{ this.coupon.endDate }} <br>
+    <i> Price :</i> {{ this.coupon.price }} <br>
+    <i> Message :</i> {{ this.coupon.message }} <br>
+    <i> Amount :</i> {{ this.coupon.amount }} <br>
+    <i> Image :</i> {{ this.coupon.image }} <br>
+</div>
+
