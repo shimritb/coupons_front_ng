@@ -9,7 +9,8 @@ import { CouponListComponent } from './components/coupon-list/coupon-list.compon
 // import { LoginComponent } from '../../components/login/login.component';
 // import { LoginRoutingModule } from '../../components/login/login-routing.module';
 
-import { CompanyService } from './services/company.service'
+import { CompanyService } from './services/company.service';
+import { CreateNewCouponComponent } from './components/create-new-coupon/create-new-coupon.component'
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import { CompanyService } from './services/company.service'
   declarations: [
     MenuComponent, 
     CouponByIdComponent, 
-    CouponListComponent],
+    CouponListComponent, CreateNewCouponComponent],
     // LoginComponent],
   providers: [CompanyService]
 })

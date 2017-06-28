@@ -1,5 +1,3 @@
-
-<h3><i>Please log in to see the coupons:</i></h3>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)"  *ngIf="!authService.isLoggedIn">
   <div class="form-group">
     <label class="center-block">Name:
@@ -14,8 +12,6 @@
       </select>
     </label>
 
-    <!--<input type="submit" class="btn btn-degault"
-      [disabled]="loginForm.invalid" value="Login">-->
     <button (click)="login(loginForm.value)" [disabled]="loginForm.invalid">Login</button>
   </div>
 </form>

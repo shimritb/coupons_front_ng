@@ -1,0 +1,30 @@
+<h3><i>New Coupon:</i></h3>
+<form [formGroup]="couponForm" (ngSubmit)="onSubmit(couponForm)">
+  <div class="form-group">
+    <label class="center-block">Coupon title:
+      <input class="form-control" formControlName="title">
+    </label>
+    <label class="center-block">Coupon startDate:
+      <input class="form-control" formControlName="startDate">
+    </label>
+    <label class="center-block">Coupon endDate:
+      <input class="form-control" formControlName="endDate">
+    </label>
+    <label class="center-block">Coupons amount:
+      <input class="form-control" formControlName="amount">
+    </label>
+     <label class="center-block">Coupon type:
+      <input class="form-control" formControlName="type">
+    </label>
+    <label class="center-block">Coupon message:
+      <input class="form-control" formControlName="message">
+    </label>
+    <label class="center-block">Coupon price:
+      <input class="form-control" formControlName="price">
+    </label>
+     <label class="center-block">Coupon image:
+      <input class="form-control" formControlName="image">
+    </label>
+    <input type="submit" class="btn btn-degault"  [disabled]="couponForm.invalid" value="Submit">
+  </div>
+</form>

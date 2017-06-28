@@ -14,9 +14,7 @@ export class AuthService {
 
   constructor(private http: Http, private config: AppConfig) { }
 
-
   // store the URL so we can redirect after logging in
-  // redirectUrl: string;
   redirectUrl: string;
 
   login(userCredentials: string) {
@@ -27,7 +25,6 @@ export class AuthService {
        
         // console.log('RESPONSE ' + JSON.parse(user));
         if (user && user.redirectUrl && user.token) {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('current_user', JSON.stringify(user));
           console.log('authSevice: RESPONSE urls: ' + user.redirectUrl);
           this.redirectUrl = user.redirectUrl;
@@ -45,13 +42,14 @@ export class AuthService {
       let headers = new Headers({ 'Authorization': currentUser.token });
       let options = new RequestOptions({ headers: headers });
 
-      return this.http.post(this.config.apiUrl + '/login_resource/logout', options);
+      this.http.post(this.config.apiUrl + '/login_resource/logout', options);
       
     }
 
-    this.isLoggedIn = false;
     // remove user from local storage to log user out
     localStorage.removeItem('current_user');
+
+    this.isLoggedIn = false;
 
     this.redirectUrl = '/home';
   }
