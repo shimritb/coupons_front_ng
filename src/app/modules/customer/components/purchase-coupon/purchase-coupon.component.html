@@ -1,0 +1,17 @@
+<h3><i>Purchase Coupon:</i></h3>
+<form [formGroup]="purchaseCouponForm" (ngSubmit)="onSubmit(purchaseCouponForm)">
+  <div class="form-group">
+    <label class="center-block">Coupon number:
+      <input class="form-control" formControlName="id">
+    </label>
+    <label class="center-block">Coupon Date:
+      <input class="form-control" type="date" formControlName="endDate"/>
+    </label>  
+    <label class="center-block">Coupons amount:
+      <input class="form-control" formControlName="amount">
+    </label>
+    <input type="submit" class="btn btn-degault"  [disabled]="purchaseCouponForm.invalid" value="Submit">
+  </div>
+</form>
+
+

@@ -1,0 +1,27 @@
+<h3><i>Coupon details:</i></h3>
+<form [formGroup]="couponByTypeForm" (ngSubmit)="onSubmit(couponByTypeForm)">
+  <div class="form-group">
+    <label class="center-block">Coupon Type:
+      <select class="form-control" formControlName="couponType">
+          <option *ngFor="let couponType of couponTypes" [value]="couponType">{{couponType}}</option>
+      </select>
+    </label>
+
+    <input type="submit" class="btn btn-degault"  [disabled]="couponByTypeForm.invalid" value="Submit">
+  </div>
+</form>
+<div [hidden]="!submitted">
+  <ul>
+      <li *ngFor="let coupon of coupons">
+        <i> Title :</i> {{ this.coupon.title }} <br>
+        <i> Type :</i> {{ this.coupon.type }} <br>
+        <i> Id :</i> {{ this.coupon.id }} <br>
+        <i> Strart Date :</i> {{ this.coupon.startDate }} <br>
+        <i> End Date :</i> {{ this.coupon.endDate }} <br>
+        <i> Price :</i> {{ this.coupon.price }} <br>
+        <i> Message :</i> {{ this.coupon.message }} <br>
+        <i> Amount :</i> {{ this.coupon.amount }} <br>
+        <i> Image :</i> {{ this.coupon.image }} <br>
+      </li>
+  </ul>
+</div>

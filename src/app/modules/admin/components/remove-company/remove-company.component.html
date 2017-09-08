@@ -1,0 +1,12 @@
+<h3><i>Remove Company:</i></h3>
+<form [formGroup]="companyForm" (ngSubmit)="onSubmit(companyForm)">
+  <div class="form-group">
+    <label class="center-block">Company id:
+      <input class="form-control" formControlName="id">
+    </label>
+    <label class="center-block">Company name:
+      <input class="form-control" formControlName="compName">
+    </label>    
+    <input type="submit" class="btn btn-degault"  [disabled]="companyForm.invalid" value="Submit">
+  </div>
+</form>

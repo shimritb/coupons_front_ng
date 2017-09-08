@@ -17,8 +17,6 @@ export class CouponListComponent implements OnInit {
      this._companyService.getAllCoupons()
       .subscribe(coupons => { 
         this.coupons = coupons;
-        console.log(coupons);
       });
   }
-
 }

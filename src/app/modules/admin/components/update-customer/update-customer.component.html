@@ -1,0 +1,15 @@
+<h3><i>Update Customer:</i></h3>
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit(customerForm)">
+  <div class="form-group">
+    <label class="center-block">Customer id:
+      <input class="form-control" formControlName="id">
+    </label>
+    <label class="center-block">Customer name:
+      <input class="form-control" formControlName="custName">
+    </label>
+    <label class="center-block">Customer password:
+      <input class="form-control" formControlName="password">
+    </label>
+    <input type="submit" class="btn btn-degault"  [disabled]="customerForm.invalid" value="Submit">
+  </div>
+</form>

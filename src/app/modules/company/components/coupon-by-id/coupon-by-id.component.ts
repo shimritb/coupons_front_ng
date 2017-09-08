@@ -30,14 +30,11 @@ export class CouponByIdComponent implements OnInit {
     });
   }
 
-
   onSubmit(form) {
-    // console.log('coupon id from form -> ' + form.value.id);
     this._companyService.getCouponById(form.value.id)
       .subscribe(coupon => { 
         this.coupon = coupon;
         this.submitted = true;
-        //console.log(coupon);
       });
   }
 }

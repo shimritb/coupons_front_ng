@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-// import 'rxjs/add/observable/of';
-// import 'rxjs/add/operator/do';
-// import 'rxjs/add/operator/delay';
 
 import { AppConfig } from '../app.config';
 
@@ -20,13 +17,11 @@ export class AuthService {
   login(userCredentials: string) {
      return this.http.post(this.config.apiUrl + '/login_resource/login', userCredentials)
       .map((response: Response) => {
-        // login successful if there's a jwt token in the response
+        // login successful if there's a token in the response
         let user = response.json();
        
-        // console.log('RESPONSE ' + JSON.parse(user));
         if (user && user.redirectUrl && user.token) {
           localStorage.setItem('current_user', JSON.stringify(user));
-          console.log('authSevice: RESPONSE urls: ' + user.redirectUrl);
           this.redirectUrl = user.redirectUrl;
           this.isLoggedIn = true;
         }
@@ -35,8 +30,6 @@ export class AuthService {
 
   logout() {
     let currentUser = JSON.parse(localStorage.getItem('current_user')); // no need to parse since the only values in localstorage is token
-    // let currentUser = localStorage.getItem('current_user')
-
 
     if (currentUser && currentUser.token ) {
       let headers = new Headers({ 'Authorization': currentUser.token });

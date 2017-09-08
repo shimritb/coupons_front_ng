@@ -15,3 +15,17 @@ export class Coupon {
   public price: string;
   public image: string  
 }
+
+export class Company {
+  public id: string;
+  public compName: string;
+  public emai: string;
+  public password: string;
+}
+
+export class Customer {
+  public id: string;
+  public custName: string;
+  public password: string;
+}
+ 

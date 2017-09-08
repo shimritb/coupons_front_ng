@@ -1,27 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from '../home/components/home/home.component';
 import { AuthGuardService } from '../../services/auth-guard.service';
-// import { CompanyComponent } from '../company/components/company/company.component';
-import { CustomerComponent } from '../customer/components/customer/customer.component';
+import { MenuComponent } from '../customer/components/menu/menu.component';
+import { PurchaseCouponComponent } from '../customer/components/purchase-coupon/purchase-coupon.component';
+import { PurchesedCouponListComponent } from '../customer/components/purchesed-coupon-list/purchesed-coupon-list.component';
+import { PurchasedCouponsListByTypeComponent } from '../customer/components/purchased-coupons-list-by-type/purchased-coupons-list-by-type.component';
+import { PurchasedCouponsByPriceComponent } from '../customer/components/purchased-coupons-by-price/purchased-coupons-by-price.component';
 
 const routes: Routes = [{
   path: '',
-    component: HomeComponent,
-    canActivate: [AuthGuardService],
-    children: [
-      {
-        path: '',
-        canActivateChild: [AuthGuardService],
-        children: [
-          // { path: 'company', component: CompanyComponent },
-          { path: 'customer', component: CustomerComponent },
-          { path: '', component: HomeComponent }
-          // { path: '', component: AdminDashboardComponent }
-        ]
-      }
-    ]
+  component: MenuComponent,
+  canActivate: [AuthGuardService],
+  children: [
+    {
+      path: '',
+      canActivateChild: [AuthGuardService],
+      children: [
+        { path: '', component: PurchaseCouponComponent },
+        { path: 'purchase_coupon', component: PurchaseCouponComponent },
+        { path: 'all_purchesed_coupons', component: PurchesedCouponListComponent },
+        { path: 'all_purchased_coupons_by_type', component: PurchasedCouponsListByTypeComponent },
+        { path: 'all_purchased_coupons_by_price', component: PurchasedCouponsByPriceComponent }
+      ]
+    }
+  ]
 }];
 
 @NgModule({

@@ -1,0 +1,17 @@
+<h3><i>Company details:</i></h3>
+<form [formGroup]="companyIdForm" (ngSubmit)="onSubmit(companyIdForm)">
+  <div class="form-group">
+    <label class="center-block">Company Id:
+      <input class="form-control" formControlName="id">
+    </label>
+
+    <input type="submit" class="btn btn-degault"  [disabled]="companyIdForm.invalid" value="Submit">
+  </div>
+</form>
+
+<div [hidden]="!submitted">
+    <i> id :</i> {{ this.company.id }} <br>
+    <i> name :</i> {{ this.company.compName }} <br>
+    <i> email :</i> {{ this.company.email }} <br>
+    <i> password :</i> {{ this.company.password }} <br>
+</div>

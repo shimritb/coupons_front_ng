@@ -1,0 +1,18 @@
+<h3><i>Update Company:</i></h3>
+<form [formGroup]="companyForm" (ngSubmit)="onSubmit(companyForm)">
+  <div class="form-group">
+    <label class="center-block">Company id:
+      <input class="form-control" formControlName="id">
+    </label>
+    <label class="center-block">Company name:
+      <input class="form-control" formControlName="compName">
+    </label>
+    <label class="center-block">Company password:
+      <input class="form-control" formControlName="password">
+    </label>
+    <label class="center-block">Company email:
+      <input class="form-control" formControlName="email">
+    </label>
+    <input type="submit" class="btn btn-degault"  [disabled]="companyForm.invalid" value="Submit">
+  </div>
+</form>

@@ -12,8 +12,6 @@ const appRoutes: Routes = [
     loadChildren: 'app/modules/home/home.module#HomeModule',
     canLoad: [AuthGuardService]
   },
-  // { path: 'login', component: LoginComponent },             // those to must be siabled and default page should be home guarded by authservice
-  // { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: '',   redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -22,16 +20,12 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes
-    //   ,
-    //   { preloadingStrategy: SelectivePreloadingStrategy }
     )
   ],
   exports: [
     RouterModule
   ],
   providers: [
-    // CanDeactivateGuard,
-    // SelectivePreloadingStrategy
   ]
 })
 export class AppRoutingModule { }

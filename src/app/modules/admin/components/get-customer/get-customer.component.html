@@ -1,0 +1,16 @@
+<h3><i>Customer details:</i></h3>
+<form [formGroup]="customerIdForm" (ngSubmit)="onSubmit(customerIdForm)">
+  <div class="form-group">
+    <label class="center-block">Customer Id:
+      <input class="form-control" formControlName="id">
+    </label>
+
+    <input type="submit" class="btn btn-degault"  [disabled]="customerIdForm.invalid" value="Submit">
+  </div>
+</form>
+
+<div [hidden]="!submitted">
+    <i> id :</i> {{ this.customer.id }} <br>
+    <i> name :</i> {{ this.customer.custName }} <br>
+    <i> password :</i> {{ this.customer.password }} <br>
+</div>

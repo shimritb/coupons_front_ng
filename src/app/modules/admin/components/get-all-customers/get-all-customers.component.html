@@ -1,0 +1,11 @@
+<p>
+  The list of all customers:
+</p>
+  
+<ul>
+  <li *ngFor="let customer of customers">
+      <i> id :</i> {{ this.customer.id }} <br>
+      <i> name :</i> {{ this.customer.custName }} <br>
+      <i> password :</i> {{ this.customer.password }} <br>
+  </li>
+</ul>
